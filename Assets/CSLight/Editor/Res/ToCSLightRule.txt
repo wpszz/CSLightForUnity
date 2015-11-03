@@ -1,0 +1,240 @@
+﻿{
+    "RemoveDelegateList" : true
+    "RemoveEnumList" : true
+
+    "Assemblys":
+    {
+        "mscorlib.dll" :
+        {
+            "IncludeNameSpace" : [],
+
+            "IncludeType" :
+            [
+                "System.Type",
+                "System.Math",
+                "System.DateTime",
+                "System.DayOfWeek",
+                "System.Convert",
+                "System.Text.StringBuilder",
+                "System.Collections.Hashtable",
+				"System.IO.MemoryStream",
+				"System.Text.Encoding",
+				"System.IO.SeekOrigin",
+                "System.Security.Cryptography.MD5CryptoServiceProvider",
+
+                "System.Action`1[System.Object]",
+            ],
+
+            "RemoveType" : [],
+
+            "RemoveTypeList" :
+            [
+                "System.Math",
+                "System.DateTime",
+                "System.DayOfWeek",
+                "System.Convert",
+                "System.Text.StringBuilder",
+                "System.Collections.Hashtable",
+				"System.IO.MemoryStream",
+				"System.Text.Encoding",
+				"System.IO.SeekOrigin",
+                "System.Security.Cryptography.MD5CryptoServiceProvider",
+            ],
+        },
+
+        "System.dll" :
+        {
+            "IncludeNameSpace" : [],
+
+            "IncludeType" : [],
+
+            "RemoveType" : [],
+        },
+
+        "System.Core.dll" :
+        {
+            "IncludeNameSpace" : [],
+
+            "IncludeType" :
+            [
+                "System.Action",
+            ],
+
+            "RemoveType" : [],
+        },
+
+        "UnityEngine.dll" :
+        {
+            "IncludeNameSpace" : [],
+
+            "IncludeType" :
+            [
+                "UnityEngine.Application",
+                "UnityEngine.Debug",
+                "UnityEngine.Random",
+                "UnityEngine.Time",
+                "UnityEngine.Screen",
+                "UnityEngine.Mathf",
+                "UnityEngine.QualitySettings",
+                "UnityEngine.Resources",
+                "UnityEngine.RuntimePlatform",
+
+                "UnityEngine.Object",
+                "UnityEngine.Vector2",
+                "UnityEngine.Vector3",
+                "UnityEngine.Vector4",
+                "UnityEngine.Rect",
+                "UnityEngine.Quaternion",
+                "UnityEngine.Color",
+                "UnityEngine.Behaviour",
+                "UnityEngine.Component",
+                "UnityEngine.Transform",
+                "UnityEngine.MonoBehaviour",
+                "UnityEngine.GameObject",
+                "UnityEngine.Camera",
+                "UnityEngine.Space",
+                "UnityEngine.PrimitiveType",
+                "UnityEngine.SphereCollider",
+                "UnityEngine.BoxCollider",
+                "UnityEngine.Collider",
+                "UnityEngine.WWW",
+                "UnityEngine.AnimatorStateInfo",
+                "UnityEngine.NavMeshAgent",
+                "UnityEngine.NavMeshObstacle",
+                "UnityEngine.NavMeshPath",
+                "UnityEngine.NavMeshHit",
+                "UnityEngine.ObstacleAvoidanceType",
+                "UnityEngine.ParticleSystem",
+                "UnityEngine.Animator",
+				"UnityEngine.Rigidbody",
+				"UnityEngine.Light",
+				"UnityEngine.Font",
+
+                "UnityEngine.Sprite",
+                "UnityEngine.RectTransform",
+
+                "UnityEngine.Canvas",
+                "UnityEngine.CanvasGroup",
+				
+                "UnityEngine.Events.UnityAction",
+                "UnityEngine.Events.UnityAction`1[System.Boolean]",
+            ],
+
+            "RemoveType" : [],
+
+            "RemoveTypeList" :
+            [
+	            "UnityEngine.Application",
+	            "UnityEngine.Debug",
+	            "UnityEngine.Random",
+	            "UnityEngine.Mathf",
+	            "UnityEngine.Time",
+                "UnityEngine.Screen",
+	            "UnityEngine.QualitySettings",
+                "UnityEngine.Resources",
+
+                "UnityEngine.NavMeshAgent",
+                "UnityEngine.NavMeshObstacle",
+                "UnityEngine.NavMeshPath",
+                "UnityEngine.NavMeshHit",
+                "UnityEngine.ObstacleAvoidanceType",
+				"UnityEngine.Rigidbody",
+				"UnityEngine.Light",
+				"UnityEngine.Font",
+
+                "UnityEngine.Canvas",
+                "UnityEngine.CanvasGroup",
+            ],
+        },
+
+        "UnityEngine.UI.dll" :
+        {
+            "IncludeNameSpace" : [],
+
+            "IncludeType" :
+            [
+                "UnityEngine.UI.Text",
+                "UnityEngine.UI.Image",
+                "UnityEngine.UI.Button",
+                "UnityEngine.UI.Button.ButtonClickedEvent",
+                "UnityEngine.UI.Slider",
+                "UnityEngine.UI.Toggle",
+                "UnityEngine.UI.Toggle.ToggleEvent",
+                "UnityEngine.UI.InputField",
+
+                "UnityEngine.EventSystems.EventTrigger",
+                "UnityEngine.EventSystems.EventTrigger.Entry",
+                "UnityEngine.EventSystems.EventTrigger.TriggerEvent",
+                "UnityEngine.EventSystems.PointerEventData",
+                "UnityEngine.EventSystems.BaseEventData",
+
+                "UnityEngine.UI.CanvasScaler",
+            ],
+
+            "RemoveType" : [],
+
+            "RemoveTypeList" :
+            [
+			    "UnityEngine.UI.Button.ButtonClickedEvent",
+			    "UnityEngine.UI.Toggle.ToggleEvent",
+
+                "UnityEngine.EventSystems.EventTrigger",
+                "UnityEngine.EventSystems.EventTrigger.TriggerEvent",
+                "UnityEngine.EventSystems.PointerEventData",
+                "UnityEngine.EventSystems.BaseEventData",
+
+                "UnityEngine.UI.CanvasScaler",
+            ],
+        },
+
+        "Assembly-CSharp.dll" :
+        {
+            "IncludeNameSpace" :
+            [
+
+            ],
+
+            "IncludeType" :
+            [
+				"CSLightMng",
+            ],
+
+            "RemoveType" : [],
+
+            "RemoveTypeList" :
+            [
+				"CSLightMng",
+            ],
+        },
+
+        "Assembly-CSharp-firstpass.dll" :
+        {
+            "IncludeNameSpace" : [],
+
+            "IncludeType" :
+            [
+
+            ],
+
+            "RemoveType" : [],
+        },
+    },
+
+    "RemoveMember" :
+    {
+	    "System.Math" : 
+	    [
+		    "BigMul",
+	    ],
+
+	    "UnityEngine.Component" : 
+	    [
+		    "networkView",
+	    ],
+
+	    "UnityEngine.GameObject" : 
+	    [
+		    "networkView",
+	    ],
+    },
+}

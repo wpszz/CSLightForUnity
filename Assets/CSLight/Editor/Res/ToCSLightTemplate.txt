@@ -1,0 +1,173 @@
+﻿using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Runtime.Serialization;
+using System.Runtime.InteropServices;
+using System.Reflection;
+using CSLE;
+
+public class ToCSLight/*type_name*/ : /*inherit_type*/
+{
+    public ToCSLight/*type_name*/()
+    {
+        this.type = typeof(/*type*/);
+        this.sysType = this.type;
+        this.keyword = "/*type*/";
+        this.function = new ToCSLight/*type_name*/_Fun(this.type);
+    }
+
+    public override object ConvertTo(CLS_Content content, object src, CLType targetType)
+    {
+//ConvertTo
+    }
+
+/*MathLogic start*/
+    public override bool MathLogic(CLS_Content content, logictoken code, object left, CLS_Content.Value right)
+    {
+//MathLogic
+        return base.MathLogic(content, code, left, right);
+    }
+/*MathLogic end*/
+
+/*Math2Value start*/
+    public override object Math2Value(CLS_Content content, char code, object left, CLS_Content.Value right, out CLType returntype)
+    {
+//Math2Value
+        return base.Math2Value(content, code, left, right, out returntype);
+    }
+/*Math2Value end*/
+
+    public class ToCSLight/*type_name*/_Fun : /*inherit_fun*/
+    {
+        public ToCSLight/*type_name*/_Fun(Type type)
+            : base(type)
+        {
+
+        }
+
+/*New start*/
+        public override CLS_Content.Value New(CLS_Content content, BetterList<CLS_Content.Value> _params)
+        {
+//New
+//one_constructor_start
+            return base.New(content, _params);
+//one_constructor_end
+        }
+/*New end*/
+
+/*StaticCall start*/
+        public override CLS_Content.Value StaticCall(CLS_Content content, string function, BetterList<CLS_Content.Value> _params)
+        {
+//StaticCall
+            return base.StaticCall(content, function, _params);
+        }
+/*StaticCall end*/
+
+/*StaticValueGet start*/
+        public override CLS_Content.Value StaticValueGet(CLS_Content content, string valuename)
+        {
+//StaticValueGet
+            return base.StaticValueGet(content, valuename);
+        }
+/*StaticValueGet end*/
+
+/*StaticValueSet start*/
+        public override void StaticValueSet(CLS_Content content, string valuename, object value)
+        {
+//StaticValueSet
+            base.StaticValueSet(content, valuename, value);
+        }
+/*StaticValueSet end*/
+
+/*MemberCall start*/
+        public override CLS_Content.Value MemberCall(CLS_Content content, object object_this, string function, BetterList<CLS_Content.Value> _params, bool isBaseCall = false)
+        {
+//struct_start_MemberCall
+            CLS_Content.Value retVal = null;
+//struct_end_MemberCall
+//MemberCall
+//struct_start_MemberCall
+            else
+                return base.MemberCall(content, object_this, function, _params, isBaseCall);
+            ICLS_Expression expLeft = content.CallExpression.listParam[0];
+            CLS_Expression_GetValue expGetValue = expLeft as CLS_Expression_GetValue;
+            if (expGetValue != null)
+            {
+                content.Set(expGetValue.value_name, newVal);
+                return retVal;
+            }
+            CLS_Expression_MemberFind expMemberFind = expLeft as CLS_Expression_MemberFind;
+            if (expMemberFind != null)
+            {
+                expGetValue = expMemberFind.listParam[0] as CLS_Expression_GetValue;
+                CLS_Content.Value val = content.Get(expGetValue.value_name);
+                content.environment.GetType(val.type).function.MemberValueSet(content, val.value, expMemberFind.membername, newVal);
+                return retVal;
+            }
+//struct_end_MemberCall
+            return base.MemberCall(content, object_this, function, _params, isBaseCall);
+        }
+/*MemberCall end*/
+
+/*MemberValueGet start*/
+        public override CLS_Content.Value MemberValueGet(CLS_Content content, object object_this, string valuename, bool isBaseCall = false)
+        {
+//MemberValueGet
+            return base.MemberValueGet(content, object_this, valuename, isBaseCall);
+        }
+/*MemberValueGet end*/
+
+/*MemberValueSet start*/
+        public override void MemberValueSet(CLS_Content content, object object_this, string valuename, object value, bool isBaseCall = false)
+        {
+//MemberValueSet
+//struct_start_MemberValueSet
+            else
+                base.MemberValueSet(content, object_this, valuename, value, isBaseCall);
+            ICLS_Expression expLeft = content.CallExpression.listParam[0];
+            CLS_Expression_GetValue expGetValue = expLeft as CLS_Expression_GetValue;
+            if (expGetValue != null)
+            {
+                content.Set(expGetValue.value_name, newVal);
+                return;
+            }
+            CLS_Expression_MemberFind expMemberFind = expLeft as CLS_Expression_MemberFind;
+            if (expMemberFind != null)
+            {
+                expGetValue = expMemberFind.listParam[0] as CLS_Expression_GetValue;
+                if (content.CallExpression is CLS_Expression_SelfOpWithValue)
+                {
+                    content.Set(expGetValue.value_name, newVal);
+                    return;
+                }
+                CLS_Content.Value val = content.Get(expGetValue.value_name);
+                content.environment.GetType(val.type).function.MemberValueSet(content, val.value, expMemberFind.membername, newVal);
+                return;
+            }
+//struct_end_MemberValueSet
+            base.MemberValueSet(content, object_this, valuename, value, isBaseCall);
+        }
+/*MemberValueSet end*/
+
+/*IndexGet start*/
+        public override CLS_Content.Value IndexGet(CLS_Content content, object object_this, object key)
+        {
+//IndexGet
+        }
+/*IndexGet end*/
+
+/*IndexSet start*/
+        public override void IndexSet(CLS_Content content, object object_this, object key, object value)
+        {
+//IndexSet
+        }
+/*IndexSet end*/
+    }
+}
