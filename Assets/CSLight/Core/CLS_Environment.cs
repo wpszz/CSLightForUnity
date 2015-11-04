@@ -230,7 +230,16 @@ namespace CSLE
                             else
                                 types[i] = typeof(SInstance);
                         }
-                        iType = new RegHelper_Type(genericType.MakeGenericType(types), keyword);
+
+                        if (typeName == "List" && types[0] == typeof(SInstance))
+                        {
+                            iType = new CLS_Type_List<SInstance>(keyword);
+                        }
+                        else
+                        {
+                            iType = new RegHelper_Type(genericType.MakeGenericType(types), keyword);
+                        }
+
                         RegType(iType);
                         return iType;
                     }
@@ -244,8 +253,15 @@ namespace CSLE
                 {
                     Type rt = iType.type;
                     if (rt == null)
+                    {
                         rt = typeof(SInstance);
-                    iType = new RegHelper_Type(rt.MakeArrayType(), keyword);
+                        iType = new CLS_Type_Array<SInstance>(keyword);
+                    }
+                    else
+                    {
+                        iType = new RegHelper_Type(rt.MakeArrayType(), keyword);
+                    }
+
                     RegType(iType);
                     return iType;
                 }

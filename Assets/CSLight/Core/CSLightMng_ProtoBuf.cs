@@ -267,6 +267,8 @@ public partial class CSLightMng : MonoBehaviour
             Type itemType = GetItemType(memberT);
             if (itemType != null)
             {
+                sClassName = sInstance.type.members[sClassName].type.keyword;
+
                 // 数组判断
                 if (memberT.IsArray)
                 {
@@ -285,7 +287,9 @@ public partial class CSLightMng : MonoBehaviour
                 {
                     string itemClass = sClassName.Substring(5, sClassName.Length - 6);  // 从 List<xxx> 中提取xxx
                     ICLS_Type iType = environment.GetTypeByKeywordQuiet(sClassName);
-                    memberV.value = iType.function.New(environment.CreateContent(), m_emptyParams).value;
+                    CLS_Content content = CLS_Content.NewContent(environment);
+                    memberV.value = iType.function.New(content, m_emptyParams).value;
+                    CLS_Content.PoolContent(content);
                     IList list = (IList)memberV.value;
                     do
                     {
@@ -360,7 +364,9 @@ public partial class CSLightMng : MonoBehaviour
             CLS_Type_Class sClass = environment.GetTypeByKeywordQuiet(sClassName) as CLS_Type_Class;
             if (!sClass.compiled)
                 RuntimeCompilerClass(sClassName);
-            CLS_Content.Value retVal = sClass.function.New(environment.CreateContent(), m_emptyParams);
+            CLS_Content content = CLS_Content.NewContent(environment);
+            CLS_Content.Value retVal = sClass.function.New(content, m_emptyParams);
+            CLS_Content.PoolContent(content);
             SInstance sInstance = (SInstance)retVal.value;
             ReadSInstance(reader, sInstance, environment);
             ProtoReader.EndSubItem(st, reader);
